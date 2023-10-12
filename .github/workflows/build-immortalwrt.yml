@@ -73,6 +73,7 @@ jobs:
 
     - name: 导入补丁和配置 & 下载文件
       run: |
+        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         cd openwrt
         make defconfig
         make download -j8 V=10
@@ -120,10 +121,8 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && steps.compile.outputs.status == 'success' && !cancelled()
       run: |
-        echo -e "✅ immortalwrt-23.05-SNAPSHOT-rax3000m-emmc-ubootmod" >> release.txt
-        max_frequency=$(($(grep -oP "max-frequency = <\K[0-9]*" openwrt/target/linux/mediatek/dts/mt7981b-cmcc-rax3000m-emmc-ubootmod.dts) / 1000000))
-        echo "使用闪存频率: ${max_frequency}MHz" >> release.txt
-        echo "release_tag=$(date +"%Y.%m.%d-23.05-rax3000m-emmc-ubootmod-${max_frequency}MHz")" >> $GITHUB_OUTPUT
+        echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M")"
+        touch release.txt
         echo "status=success" >> $GITHUB_OUTPUT
 
     - name: 上传固件发布
