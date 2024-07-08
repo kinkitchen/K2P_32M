@@ -6,7 +6,7 @@ src-git telephony https://git.openwrt.org/feed/telephony.git
 #src-git targets https://github.com/openwrt/targets.git
 #src-git oldpackages http://git.openwrt.org/packages.git
 #src-link custom /usr/src/openwrt/custom-feed
-#src-git NueXini_Packages https://github.com/NueXini/NueXini_Packages.git
+src-git NueXini_Packages https://github.com/NueXini/NueXini_Packages.git
 #src-git NueXini_Packages https://github.com/lm1618/NueXini_Packages.git
 #src-git smpackage https://github.com/kenzok8/small-package
-src-git smpackage https://github.com/lm1618/small-package
+#src-git smpackage https://github.com/lm1618/small-package
