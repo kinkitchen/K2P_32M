@@ -26,7 +26,7 @@ env:
   REPO_URL: https://github.com/lm1618/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default.new
-  CONFIG_FILE: 2024_0708.config
+  CONFIG_FILE: 2025_0707.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: true
